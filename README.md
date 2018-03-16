@@ -15,3 +15,17 @@ _dispatchEvent @ Sortable.js:1323
 _onDrop @ Sortable.js:986
 handleEvent @ Sortable.js:1044
 ```
+
+## Solution:
+I manage to fix this issue by changing the code in Sortable.js in sortablejs library below:
+```
+  rootEl.dispatchEvent(evt);
+```
+to
+```
+  if(rootEl) {
+    rootEl.dispatchEvent(evt);
+  }
+```
+
+I will make a pull request.
