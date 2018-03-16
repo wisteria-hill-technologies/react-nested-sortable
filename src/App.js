@@ -16,7 +16,6 @@ class App extends Component {
   }
 
   handleDnD=(items, sortable, evt)=>{
-    evt.stopPropagation()
     console.log("items>>>", items)
     const updatedItems = items.map(item=>this.state.items.filter(itemObj=>itemObj.name===item)[0])
     console.log("updatedItems>>>>", updatedItems)
@@ -24,7 +23,6 @@ class App extends Component {
   }
 
   handleSubDnD=(parentItemName, items, sortable, evt)=>{
-    evt.stopPropagation()
     const updateItems = this.state.items.map(item=>{
       if(item.name===parentItemName) {
         item.subItems = items
