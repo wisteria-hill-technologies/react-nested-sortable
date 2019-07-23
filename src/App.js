@@ -49,6 +49,12 @@ class App extends Component {
           <Sortable
             tag="ul"
             onChange={(items, sortable, evt)=>this.handleDnD(items, sortable, evt)}
+            options={{
+              group: "nested",
+              animation: 150,
+              fallbackOnBody: true,
+              swapThreshold: 0.65
+            }}
           >
             {
               this.state.items.map((item)=>{
@@ -64,6 +70,12 @@ class App extends Component {
                       <Sortable
                         tag="ul"
                         onChange={ (items, sortable, evt)=>this.handleSubDnD(item.name, items, sortable, evt)}
+                        options={{
+                          group: "nested",
+                          animation: 150,
+                          fallbackOnBody: true,
+                          swapThreshold: 0.65
+                        }}
                       >
                         {
                           item.subItems.map(subItem=>{
